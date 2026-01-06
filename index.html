@@ -5,132 +5,181 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day and Night Watch Tower</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
     <style>
         :root {
-            /* Updated Color Palette for High Contrast */
-            --primary-color: #0f172a; /* Very Dark Blue (Slate) - High Contrast */
-            --accent-color: #3b82f6;  /* Bright Blue for links/accents */
-            --body-font: 'Inter', sans-serif;
+            --primary: #1e293b; /* Deep Slate/Navy */
+            --secondary: #d4a373; /* Muted Gold/Bronze */
+            --light-bg: #f8f9fa;
+            --text-dark: #333;
+            --text-light: #666;
         }
 
         body {
-            font-family: var(--body-font);
-            color: #4b5563; /* Softer gray for text to reduce eye strain */
-            line-height: 1.8; /* Increased line height for cleaner reading */
-            background-color: #f9fafb; /* Very light gray background instead of harsh white */
+            font-family: 'Lato', sans-serif;
+            color: var(--text-dark);
+            background-color: #fff;
         }
 
-        h1, h2, h3, h4, h5, .navbar-brand {
-            font-family: var(--body-font);
-            color: var(--primary-color);
-            font-weight: 800; /* Bolder headings for clarity */
-            letter-spacing: -0.5px;
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
         }
 
-        /* --- Navbar --- */
+        /* --- Custom Navbar --- */
         .navbar {
-            padding-top: 20px;
-            padding-bottom: 20px;
+            padding: 1.5rem 0;
             transition: all 0.3s ease;
-            background-color: rgba(255, 255, 255, 0.95) !important; /* Slight transparency */
-            backdrop-filter: blur(10px); /* Frosted glass effect */
+            background: white;
         }
-
+        
         .navbar-brand {
-            font-size: 1.25rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-size: 1.5rem;
         }
 
         .nav-link {
-            color: #374151 !important;
-            font-weight: 600;
             font-size: 0.9rem;
-            margin-right: 20px;
-            transition: color 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            color: var(--primary) !important;
+            margin: 0 10px;
         }
 
         .nav-link:hover {
-            color: var(--accent-color) !important;
+            color: var(--secondary) !important;
         }
 
-        /* --- High Visibility Buttons --- */
-        .btn {
-            font-weight: 700;
+        /* --- Buttons --- */
+        .btn-custom {
+            background-color: var(--primary);
+            color: white;
+            border-radius: 0; /* Square edges for professional look */
             padding: 12px 30px;
-            border-radius: 50px; /* Fully rounded pill shape */
             text-transform: uppercase;
-            font-size: 0.85rem;
             letter-spacing: 1px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            font-size: 0.8rem;
+            transition: 0.3s;
+            border: 1px solid var(--primary);
         }
 
-        .btn:hover {
-            transform: translateY(-3px); /* Lifts up on hover */
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        .btn-custom:hover {
+            background-color: white;
+            color: var(--primary);
         }
 
-        /* Specific Donate Button Style */
-        .btn-donate {
-            background-color: var(--primary-color);
-            border: 2px solid var(--primary-color);
+        .btn-outline-custom {
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            border-radius: 0;
+            padding: 10px 25px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            transition: 0.3s;
+        }
+
+        .btn-outline-custom:hover {
+            background-color: var(--primary);
             color: white;
         }
-        
-        .btn-donate:hover {
-            background-color: transparent;
-            color: var(--primary-color);
-        }
 
-        /* --- Hero Section --- */
-        .hero-section {
-            /* Added a darker overlay (0.6 -> 0.7) so text pops more */
-            background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), 
-                        url('https://images.unsplash.com/photo-1445633629932-0029acc44e88?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+        /* --- Hero --- */
+        .hero {
+            background: linear-gradient(rgba(30, 41, 59, 0.8), rgba(30, 41, 59, 0.6)), url('https://images.unsplash.com/photo-1478147427282-58a87a120781?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
             background-size: cover;
             background-position: center;
-            height: 90vh; /* Slightly shorter than full screen for modern feel */
+            height: 80vh;
+            display: flex;
+            align-items: center;
             color: white;
-            position: relative;
-        }
-
-        .hero-title {
-            font-weight: 800;
-            letter-spacing: -1px;
-        }
-
-        /* --- Sections --- */
-        .section-padding {
-            padding: 100px 0; /* More whitespace */
-        }
-
-        /* Clean Card Style */
-        .clean-card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 20px;
-            transition: transform 0.3s ease;
-            border: 1px solid #f3f4f6; /* Very subtle border */
         }
         
-        .clean-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            border-color: transparent;
+        .hero h1 {
+            color: white;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* --- Cards (Ministries) --- */
+        .ministry-card {
+            border: none;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+
+        .ministry-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .ministry-img-top {
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .ministry-body {
+            padding: 2rem;
+        }
+
+        /* --- Event List --- */
+        .event-row {
+            border-bottom: 1px solid #eee;
+            padding: 30px 0;
+            transition: background 0.3s;
+        }
+        
+        .event-row:hover {
+            background-color: var(--light-bg);
+        }
+
+        .date-badge {
+            text-align: center;
+            border-right: 2px solid var(--secondary);
+            padding-right: 20px;
+            min-width: 100px;
+        }
+        
+        .date-day {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1;
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .date-month {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            color: var(--secondary);
         }
 
         /* --- Footer --- */
         footer {
-            background-color: var(--primary-color);
-            color: #9ca3af; /* Lighter text on dark background */
+            background-color: #111;
+            color: #aaa;
+            padding: 80px 0 40px;
         }
         
         footer h5 {
             color: white;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+        }
+        
+        footer a {
+            color: #aaa;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        
+        footer a:hover {
+            color: var(--secondary);
         }
     </style>
 </head>
@@ -138,163 +187,278 @@
 
     <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <span class="text-dark">DAY & NIGHT</span> <span style="color: #6b7280;">WATCH TOWER</span>
-            </a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <a class="navbar-brand" href="#">WATCH TOWER</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#ministries">Ministries</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
-                        <a href="#donate" class="btn btn-donate">Donate Now</a>
+                    <li class="nav-item"><a class="nav-link" href="index.html#ministries">Ministries</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#events">Events</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item ms-3">
+                        <a href="donate.html" class="btn btn-custom">Give</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <header id="home" class="hero-section d-flex align-items-center text-center">
-        <div class="container">
+    <header class="hero">
+        <div class="container text-center">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <h1 class="display-3 mb-4 text-white hero-title">Day and Night<br>Watch Tower</h1>
-                    <p class="lead text-white-50 mb-5 fs-4">A sanctuary of prayer, presence, and purpose.</p>
-                    
-                    <a href="#about" class="btn btn-light text-dark px-5 py-3">Our Mission</a>
+                    <p class="text-uppercase ls-2 mb-3" style="letter-spacing: 3px; color: var(--secondary);">Welcome to Day & Night</p>
+                    <h1>A House of Prayer for All Nations</h1>
+                    <p class="lead mb-5 opacity-75">Join a community dedicated to unceasing worship and transformative service.</p>
+                    <a href="#events" class="btn btn-custom btn-lg me-3">Plan a Visit</a>
+                    <a href="#about" class="btn btn-outline-light rounded-0 px-4 py-3 text-uppercase" style="font-size: 0.8rem; letter-spacing: 1px;">Learn More</a>
                 </div>
             </div>
         </div>
     </header>
 
-    <section id="about" class="section-padding bg-white">
+    <section id="about" class="py-5 my-5">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6 mb-5 mb-lg-0">
-                    <img src="https://images.unsplash.com/photo-1438232992991-995b7058bbb3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Community gathering" class="img-fluid rounded-4 shadow-lg">
+                <div class="col-lg-5">
+                    <h6 class="text-uppercase text-secondary fw-bold mb-3">Our Mission</h6>
+                    <h2 class="display-5 mb-4">Cultivating His Presence.</h2>
+                    <p class="text-muted mb-4">We believe in the power of prayer and the importance of community. Our mission is to create a space where people can encounter God, find freedom, and discover their purpose.</p>
+                    <div class="d-flex align-items-center">
+                        <div class="display-1 text-secondary me-3" style="font-family: 'Playfair Display';">10+</div>
+                        <div>
+                            <p class="mb-0 fw-bold">Years of</p>
+                            <p class="mb-0 text-muted">Service & Worship</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-6 ps-lg-5">
-                    <h6 class="text-uppercase fw-bold text-primary mb-3">Who We Are</h6>
-                    <h2 class="display-5 mb-4 text-dark">Faith in Action.</h2>
-                    <p class="text-muted mb-5 fs-5">We are a community driven by the desire to bring light to our city. Our focus is simple: love God and love people. Whether you have been a believer for years or are just asking questions, there is a place for you here.</p>
-                    <a href="#" class="btn btn-outline-dark px-4">Read Our Story</a>
+                <div class="col-lg-6 offset-lg-1 mt-5 mt-lg-0">
+                    <img src="https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Church Interior" class="img-fluid shadow w-100" style="filter: grayscale(20%);">
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="ministries" class="section-padding">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h6 class="text-uppercase fw-bold text-primary">Ministries</h6>
-                <h2 class="display-6 fw-bold">Connect & Grow</h2>
+    <section id="ministries" class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="row justify-content-between align-items-end mb-5">
+                <div class="col-md-8">
+                    <h6 class="text-uppercase text-secondary fw-bold">Serve & Connect</h6>
+                    <h2>Our Ministries</h2>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <a href="#" class="btn btn-outline-custom">View All Ministries <i class="bi bi-arrow-right ms-2"></i></a>
+                </div>
             </div>
+
             <div class="row g-4">
                 <div class="col-md-4">
-                    <div class="clean-card text-center h-100">
-                        <h4 class="mb-3">Kids & Youth</h4>
-                        <p class="text-muted">Safe, fun, and engaging environments for children of all ages to learn about faith.</p>
+                    <div class="ministry-card d-flex flex-column">
+                        <img src="https://images.unsplash.com/photo-1491841550275-ad7854e35ca6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="ministry-img-top" alt="Youth">
+                        <div class="ministry-body flex-grow-1">
+                            <h4>Youth & Students</h4>
+                            <p class="text-muted small mb-4">Empowering the next generation to lead with faith and courage through small groups and events.</p>
+                            <a href="#" class="text-decoration-none text-uppercase fw-bold text-dark" style="font-size: 0.8rem;">Explore Ministry <i class="bi bi-chevron-right text-secondary"></i></a>
+                        </div>
                     </div>
                 </div>
+
                 <div class="col-md-4">
-                    <div class="clean-card text-center h-100">
-                        <h4 class="mb-3">Community</h4>
-                        <p class="text-muted">Life is better together. Join a small group to build lasting friendships.</p>
+                    <div class="ministry-card d-flex flex-column">
+                        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="ministry-img-top" alt="Music">
+                        <div class="ministry-body flex-grow-1">
+                            <h4>Worship & Arts</h4>
+                            <p class="text-muted small mb-4">Using music and creativity to express our devotion and create an atmosphere of worship.</p>
+                            <a href="#" class="text-decoration-none text-uppercase fw-bold text-dark" style="font-size: 0.8rem;">Explore Ministry <i class="bi bi-chevron-right text-secondary"></i></a>
+                        </div>
                     </div>
                 </div>
+
                 <div class="col-md-4">
-                    <div class="clean-card text-center h-100">
-                        <h4 class="mb-3">Outreach</h4>
-                        <p class="text-muted">Serving our local city and supporting global missions to make a difference.</p>
+                    <div class="ministry-card d-flex flex-column">
+                        <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="ministry-img-top" alt="Outreach">
+                        <div class="ministry-body flex-grow-1">
+                            <h4>Community Outreach</h4>
+                            <p class="text-muted small mb-4">Extending a helping hand to our city through food drives, counseling, and support.</p>
+                            <a href="#" class="text-decoration-none text-uppercase fw-bold text-dark" style="font-size: 0.8rem;">Explore Ministry <i class="bi bi-chevron-right text-secondary"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="donate" class="section-padding text-center text-white" style="background-color: var(--primary-color);">
-        <div class="container">
+    <section id="events" class="py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h6 class="text-uppercase text-secondary fw-bold">Calendar</h6>
+                <h2>Upcoming Events</h2>
+                <p class="text-muted">Join us for our upcoming gatherings and special services.</p>
+            </div>
+
             <div class="row justify-content-center">
-                <div class="col-lg-7">
-                    <h2 class="mb-4 text-white">Support Our Mission</h2>
-                    <p class="mb-5 text-white-50 fs-5">Your generosity helps us continue our work in the community and beyond. Thank you for your support.</p>
-                    <button class="btn btn-light btn-lg px-5 py-3 text-dark">Give Online</button>
+                <div class="col-lg-9">
+                    
+                    <div class="event-row d-md-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center mb-3 mb-md-0">
+                            <div class="date-badge">
+                                <div class="date-day">12</div>
+                                <div class="date-month">Jan</div>
+                            </div>
+                            <div class="ps-4">
+                                <h4 class="mb-1">Night of Vigil</h4>
+                                <p class="text-muted mb-0"><i class="bi bi-clock me-2"></i>10:00 PM &nbsp;|&nbsp; <i class="bi bi-geo-alt me-2"></i>Main Sanctuary</p>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="#" class="btn btn-sm btn-outline-dark rounded-0 px-4">Details</a>
+                        </div>
+                    </div>
+
+                    <div class="event-row d-md-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center mb-3 mb-md-0">
+                            <div class="date-badge">
+                                <div class="date-day">15</div>
+                                <div class="date-month">Jan</div>
+                            </div>
+                            <div class="ps-4">
+                                <h4 class="mb-1">Leaders Meeting</h4>
+                                <p class="text-muted mb-0"><i class="bi bi-clock me-2"></i>6:00 PM &nbsp;|&nbsp; <i class="bi bi-geo-alt me-2"></i>Conference Room B</p>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="#" class="btn btn-sm btn-outline-dark rounded-0 px-4">Details</a>
+                        </div>
+                    </div>
+
+                    <div class="event-row d-md-flex align-items-center justify-content-between border-bottom-0">
+                        <div class="d-flex align-items-center mb-3 mb-md-0">
+                            <div class="date-badge">
+                                <div class="date-day">21</div>
+                                <div class="date-month">Jan</div>
+                            </div>
+                            <div class="ps-4">
+                                <h4 class="mb-1">New Member Orientation</h4>
+                                <p class="text-muted mb-0"><i class="bi bi-clock me-2"></i>9:00 AM &nbsp;|&nbsp; <i class="bi bi-geo-alt me-2"></i>Fellowship Hall</p>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="#" class="btn btn-sm btn-outline-dark rounded-0 px-4">Details</a>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-5">
+                        <a href="events.html" class="btn btn-custom">View Full Calendar</a>
+                    </div>
+
                 </div>
             </div>
         </div>
     </section>
 
-<footer id="contact" class="text-white py-5" style="background-color: #0f172a;">
-    <div class="container">
-        <div class="row gy-5">
-            <div class="col-lg-4 col-md-6">
-                <h5 class="fw-bold text-white mb-4" style="letter-spacing: -0.5px;">Day and Night<br>Watch Tower</h5>
-                <p class="text-white-50 small mb-0">
-                    123 Main Street<br>
-                    Cityville, ST 12345
-                </p>
-            </div>
+    <section id="contact" class="py-5" style="background-color: #f1f5f9;">
+        <div class="container py-5">
+            <div class="row shadow-lg bg-white">
+                <div class="col-lg-5 text-white p-5 d-flex flex-column justify-content-center" style="background-color: var(--primary);">
+                    <h3 class="text-white mb-4">Visit Us</h3>
+                    <p class="mb-5 opacity-75">We are located in the heart of the city. Stop by for a visit, we would love to meet you.</p>
+                    
+                    <div class="mb-4">
+                        <h6 class="text-secondary text-uppercase small">Address</h6>
+                        <p class="fs-5">123 Watch Tower Blvd,<br>Cityville, ST 54321</p>
+                    </div>
 
-            <div class="col-lg-4 col-md-6">
-                <h5 class="fw-bold text-white mb-4">Service Times</h5>
-                <ul class="list-unstyled text-white-50 small mb-0">
-                    <li class="mb-2">Sundays: 9:00 AM & 11:00 AM</li>
-                    <li class="mb-2">Wednesdays: 7:00 PM</li>
-                    <li>Friday Night Vigil: 10:00 PM</li>
-                </ul>
-            </div>
+                    <div class="mb-4">
+                        <h6 class="text-secondary text-uppercase small">Contact</h6>
+                        <p class="fs-5">(555) 123-4567<br>hello@watchtower.org</p>
+                    </div>
+                </div>
 
-            <div class="col-lg-4 col-md-12">
-                <h5 class="fw-bold text-white mb-4">Connect</h5>
-                <p class="text-white-50 small mb-4">
-                    info@dayandnightwatch.com<br>
-                    (555) 123-4567
-                </p>
-                <div class="d-flex gap-3">
-                    <a href="#" class="text-white text-decoration-none">Facebook</a>
-                    <a href="#" class="text-white text-decoration-none">Instagram</a>
-                    <a href="#" class="text-white text-decoration-none">YouTube</a>
+                <div class="col-lg-7 p-5">
+                    <h3 class="mb-4">Send a Message</h3>
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="small text-uppercase text-muted fw-bold">First Name</label>
+                                <input type="text" class="form-control border-0 bg-light p-3" placeholder="John">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="small text-uppercase text-muted fw-bold">Last Name</label>
+                                <input type="text" class="form-control border-0 bg-light p-3" placeholder="Doe">
+                            </div>
+                            <div class="col-12">
+                                <label class="small text-uppercase text-muted fw-bold">Email</label>
+                                <input type="email" class="form-control border-0 bg-light p-3" placeholder="john@example.com">
+                            </div>
+                            <div class="col-12">
+                                <label class="small text-uppercase text-muted fw-bold">Message</label>
+                                <textarea class="form-control border-0 bg-light p-3" rows="4" placeholder="How can we help?"></textarea>
+                            </div>
+                            <div class="col-12 mt-4">
+                                <button class="btn btn-custom w-100">Submit Request</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="border-top border-secondary mt-5 pt-4 text-center">
-            <p class="small text-white-50 mb-0">&copy; 2024 Day and Night Watch Tower. All rights reserved.</p>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="text-white">Day & Night Watch Tower</h5>
+                    <p class="small">A non-profit organization dedicated to faith, hope, and charity. All donations are tax-deductible.</p>
+                    <div class="d-flex gap-3 mt-3">
+                        <a href="#"><i class="bi bi-facebook fs-5"></i></a>
+                        <a href="#"><i class="bi bi-instagram fs-5"></i></a>
+                        <a href="#"><i class="bi bi-youtube fs-5"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 offset-lg-2 mb-4 mb-lg-0">
+                    <h5>Discover</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">About Us</a></li>
+                        <li class="mb-2"><a href="#">Our Team</a></li>
+                        <li class="mb-2"><a href="#">Ministries</a></li>
+                        <li class="mb-2"><a href="#">Events</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 mb-4 mb-lg-0">
+                    <h5>Connect</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">Contact</a></li>
+                        <li class="mb-2"><a href="#">Prayer Request</a></li>
+                        <li class="mb-2"><a href="#">Counseling</a></li>
+                        <li class="mb-2"><a href="#">Directions</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h5>Service Times</h5>
+                    <ul class="list-unstyled text-secondary">
+                        <li class="mb-1">Sun: 9am & 11am</li>
+                        <li class="mb-1">Wed: 7pm</li>
+                        <li class="mb-1">Fri: 10pm</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-top border-secondary pt-4 mt-5">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start">
+                        <p class="small mb-0">&copy; 2024 Day and Night Watch Tower.</p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <p class="small mb-0"><a href="#">Privacy Policy</a> &bull; <a href="#">Terms of Use</a></p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const navbar = document.querySelector('.navbar');
-
-            window.addEventListener('scroll', function () {
-                if (window.scrollY > 50) {
-                    navbar.classList.add('shadow-sm');
-                    navbar.style.padding = '10px 0';
-                } else {
-                    navbar.classList.remove('shadow-sm');
-                    navbar.style.padding = '20px 0';
-                }
-            });
-
-            // Smooth Scroll
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                });
-            });
-        });
-    </script>
 </body>
 </html>

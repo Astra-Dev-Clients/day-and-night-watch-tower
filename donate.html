@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate | Day and Night Watch Tower</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
+    <style>
+        :root {
+            --primary: #1e293b; /* Deep Slate/Navy */
+            --secondary: #d4a373; /* Muted Gold/Bronze */
+            --light-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: #333;
+            background-color: var(--light-bg);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+        }
+
+        /* Navbar (Consistent) */
+        .navbar { background: white; padding: 1.5rem 0; }
+        .navbar-brand { font-weight: 700; letter-spacing: 1px; font-size: 1.5rem; color: var(--primary); }
+        .nav-link { font-weight: 700; color: var(--primary) !important; text-transform: uppercase; font-size: 0.9rem; margin: 0 10px; }
+
+        /* Hero */
+        .page-header {
+            background: linear-gradient(rgba(30, 41, 59, 0.9), rgba(30, 41, 59, 0.8)), url('https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0 60px;
+            color: white;
+            text-align: center;
+        }
+
+        /* Donation Card */
+        .donation-card {
+            background: white;
+            border-radius: 0;
+            border: none;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            margin-top: -50px; /* Overlap effect */
+            padding: 40px;
+        }
+
+        /* Form Styling */
+        .form-label {
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #666;
+        }
+
+        .form-control, .form-select {
+            padding: 12px;
+            border-radius: 4px; /* Slight rounding */
+            border: 1px solid #ddd;
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary);
+            box-shadow: none;
+        }
+
+        /* Amount Radio Buttons */
+        .btn-check:checked + .btn-amount {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .btn-amount {
+            border: 1px solid #ddd;
+            color: var(--primary);
+            font-weight: 700;
+            padding: 15px;
+            width: 100%;
+            transition: 0.2s;
+        }
+
+        .btn-amount:hover {
+            border-color: var(--primary);
+            background-color: #f8f9fa;
+        }
+
+        /* Impact Section Icons */
+        .impact-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">WATCH TOWER</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#ministries">Ministries</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#events">Events</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item ms-3">
+                        <a href="donate.html" class="btn btn-custom">Give</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1 class="display-4 text-white">Make an Impact</h1>
+            <p class="lead text-white-50">"Each of you should give what you have decided in your heart to give... for God loves a cheerful giver." <br>— 2 Corinthians 9:7</p>
+        </div>
+    </header>
+
+    <div class="container mb-5">
+        <div class="row justify-content-center">
+            
+            <div class="col-lg-4 mt-5 pt-4">
+                <h3 class="mb-4">Where does it go?</h3>
+                
+                <div class="d-flex mb-4">
+                    <div class="me-3"><i class="bi bi-people impact-icon"></i></div>
+                    <div>
+                        <h5>Community Support</h5>
+                        <p class="text-muted small">Your tithes help us run food banks and counseling services for the city.</p>
+                    </div>
+                </div>
+
+                <div class="d-flex mb-4">
+                    <div class="me-3"><i class="bi bi-globe-americas impact-icon"></i></div>
+                    <div>
+                        <h5>Global Missions</h5>
+                        <p class="text-muted small">Supporting missionaries and planting churches in unreached areas.</p>
+                    </div>
+                </div>
+
+                <div class="d-flex mb-4">
+                    <div class="me-3"><i class="bi bi-house-heart impact-icon"></i></div>
+                    <div>
+                        <h5>Ministry Growth</h5>
+                        <p class="text-muted small">Maintaining our sanctuary and funding youth and children's programs.</p>
+                    </div>
+                </div>
+
+                <div class="alert alert-light border mt-5">
+                    <small class="d-block text-muted"><strong>Security Note:</strong><br>All transactions are processed securely via PayPal. We do not store your card details.</small>
+                </div>
+            </div>
+
+            <div class="col-lg-7 offset-lg-1">
+                <div class="donation-card">
+                    <h2 class="mb-4">Give Online</h2>
+                    
+                    <form id="donationForm">
+                        <div class="mb-4">
+                            <label class="form-label">I would like to give to</label>
+                            <select class="form-select form-select-lg">
+                                <option value="tithe">Tithes (General Fund)</option>
+                                <option value="offering">Special Offering</option>
+                                <option value="donation">Missions Donation</option>
+                                <option value="pledge">Building Pledge</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label">Select Amount ($)</label>
+                            <div class="row g-2">
+                                <div class="col-4">
+                                    <input type="radio" class="btn-check" name="amount" id="amt25" value="25">
+                                    <label class="btn btn-amount" for="amt25">$25</label>
+                                </div>
+                                <div class="col-4">
+                                    <input type="radio" class="btn-check" name="amount" id="amt50" value="50" checked>
+                                    <label class="btn btn-amount" for="amt50">$50</label>
+                                </div>
+                                <div class="col-4">
+                                    <input type="radio" class="btn-check" name="amount" id="amt100" value="100">
+                                    <label class="btn btn-amount" for="amt100">$100</label>
+                                </div>
+                            </div>
+                            <div class="mt-2">
+                                <div class="input-group">
+                                    <span class="input-group-text bg-white border-end-0 text-muted">$</span>
+                                    <input type="number" class="form-control border-start-0 ps-0" id="customAmount" placeholder="Enter custom amount">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-6">
+                                <label class="form-label">First Name</label>
+                                <input type="text" class="form-control" placeholder="John">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Last Name</label>
+                                <input type="text" class="form-control" placeholder="Doe">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Email Address</label>
+                                <input type="email" class="form-control" placeholder="john@example.com">
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <label class="form-label mb-3">Payment Method</label>
+                            <div id="paypal-button-container"></div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white py-4 mt-5 text-center">
+        <p class="small opacity-50 mb-0">&copy; 2024 Day and Night Watch Tower.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD"></script>
+
+    <script>
+        // Logic to handle amount selection
+        let donationAmount = '50.00'; // Default
+
+        // Listener for preset buttons
+        document.querySelectorAll('input[name="amount"]').forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                document.getElementById('customAmount').value = ''; // Clear custom input
+                donationAmount = e.target.value;
+            });
+        });
+
+        // Listener for custom input
+        document.getElementById('customAmount').addEventListener('input', (e) => {
+            // Uncheck presets
+            document.querySelectorAll('input[name="amount"]').forEach(r => r.checked = false);
+            donationAmount = e.target.value;
+        });
+
+        // PayPal Button Rendering
+        paypal.Buttons({
+            style: {
+                layout: 'vertical',
+                color:  'gold',
+                shape:  'rect',
+                label:  'donate'
+            },
+            
+            // Sets up the transaction
+            createOrder: function(data, actions) {
+                if(!donationAmount || donationAmount <= 0) {
+                    alert("Please enter a valid donation amount.");
+                    return;
+                }
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: donationAmount
+                        },
+                        description: "Donation to Day and Night Watch Tower"
+                    }]
+                });
+            },
+
+            // Finalize the transaction
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    // Show a success message to the buyer
+                    alert('Thank you for your donation, ' + details.payer.name.given_name + '!');
+                    
+                    // TODO: Here you would use AJAX to send 'details' to your PHP backend 
+                    // to insert into the 'contributions' database table.
+                });
+            }
+        }).render('#paypal-button-container');
+    </script>
+</body>
+</html>

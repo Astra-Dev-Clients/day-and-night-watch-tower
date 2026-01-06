@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Day and Night Watch Tower</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
+    <style>
+        :root {
+            --primary: #1e293b; /* Deep Slate/Navy */
+            --secondary: #d4a373; /* Muted Gold/Bronze */
+            --light-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: #333;
+            background-color: var(--light-bg);
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+        }
+
+        /* Navbar */
+        .navbar { background: white; padding: 1.5rem 0; }
+        .navbar-brand { font-weight: 700; letter-spacing: 1px; font-size: 1.5rem; color: var(--primary); }
+        .nav-link { font-weight: 700; color: var(--primary) !important; text-transform: uppercase; font-size: 0.9rem; margin: 0 10px; }
+
+        /* Header */
+        .page-header {
+            background: linear-gradient(rgba(30, 41, 59, 0.8), rgba(30, 41, 59, 0.8)), url('https://images.unsplash.com/photo-1516733968668-dbdce39c4651?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 120px 0 80px;
+            color: white;
+            text-align: center;
+        }
+
+        /* Info Card */
+        .info-card {
+            background-color: var(--primary);
+            color: white;
+            padding: 50px;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative line */
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: var(--secondary);
+        }
+
+        .info-label {
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: 0.3s;
+        }
+
+        .social-link:hover {
+            background-color: var(--secondary);
+            border-color: var(--secondary);
+            color: var(--primary);
+        }
+
+        /* Form */
+        .contact-form-container {
+            background: white;
+            padding: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .form-control, .form-select {
+            border-radius: 0;
+            padding: 15px;
+            background-color: #fafafa;
+            border: 1px solid #eee;
+        }
+
+        .form-control:focus, .form-select:focus {
+            background-color: white;
+            border-color: var(--secondary);
+            box-shadow: none;
+        }
+
+        .btn-submit {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            border: none;
+            transition: 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        /* Map */
+        .map-container {
+            height: 400px;
+            width: 100%;
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">WATCH TOWER</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#ministries">Ministries</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#events">Events</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item ms-3">
+                        <a href="donate.html" class="btn btn-custom">Give</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1 class="display-4 mb-3">Get in Touch</h1>
+            <p class="lead text-white-50 mx-auto" style="max-width: 600px;">Whether you have a prayer request, a question about our ministries, or just want to say hello, we are here for you.</p>
+        </div>
+    </header>
+
+    <section class="py-5">
+        <div class="container py-4">
+            <div class="row g-0 shadow-lg">
+                
+                <div class="col-lg-5">
+                    <div class="info-card">
+                        <h3 class="mb-5 text-white">Contact Information</h3>
+
+                        <div class="mb-4">
+                            <div class="info-label">Visit Us</div>
+                            <p class="fs-5 mb-0">123 Watch Tower Blvd<br>Cityville, ST 54321</p>
+                        </div>
+
+                        <div class="mb-4">
+                            <div class="info-label">Call Us</div>
+                            <p class="fs-5 mb-0">(555) 123-4567</p>
+                            <small class="text-white-50">Mon - Fri: 9:00 AM - 5:00 PM</small>
+                        </div>
+
+                        <div class="mb-5">
+                            <div class="info-label">Email Us</div>
+                            <p class="fs-5 mb-0">hello@dayandnight.org</p>
+                        </div>
+
+                        <div class="mt-auto">
+                            <div class="info-label mb-3">Follow Us</div>
+                            <div>
+                                <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
+                                <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+                                <a href="#" class="social-link"><i class="bi bi-youtube"></i></a>
+                                <a href="#" class="social-link"><i class="bi bi-twitter-x"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+                    <div class="contact-form-container h-100">
+                        <h3 class="mb-4">Send a Message</h3>
+                        <form action="process_contact.php" method="POST">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label small text-muted text-uppercase fw-bold">First Name</label>
+                                    <input type="text" class="form-control" name="first_name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small text-muted text-uppercase fw-bold">Last Name</label>
+                                    <input type="text" class="form-control" name="last_name" required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label small text-muted text-uppercase fw-bold">Email</label>
+                                    <input type="email" class="form-control" name="email" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small text-muted text-uppercase fw-bold">Phone</label>
+                                    <input type="tel" class="form-control" name="phone">
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="form-label small text-muted text-uppercase fw-bold">How can we help?</label>
+                                    <select class="form-select" id="inquiryType" name="category">
+                                        <option value="general">General Inquiry</option>
+                                        <option value="prayer">Prayer Request</option>
+                                        <option value="counseling">Request Counseling</option>
+                                        <option value="membership">Membership Information</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="form-label small text-muted text-uppercase fw-bold">Message</label>
+                                    <textarea class="form-control" rows="5" name="message" required></textarea>
+                                </div>
+
+                                <div class="col-12" id="confidentialOption" style="display:none;">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="is_confidential" id="confidentialCheck">
+                                        <label class="form-check-label text-muted" for="confidentialCheck">
+                                            Keep this prayer request confidential (Pastoral team only).
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 mt-4">
+                                    <button type="submit" class="btn btn-submit w-100">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container-fluid p-0">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.16335372436!2d36.8219!3d-1.2921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMcKwMTcnMzEuNiJTIDM2wrA0OScxOC44IkU!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" 
+                width="100%" 
+                height="450" 
+                style="border:0; filter: grayscale(100%) contrast(1.2);" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="mb-3 text-white">Day & Night Watch Tower</h5>
+                    <p class="small text-white-50">Dedicated to unceasing prayer and community service.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="small text-white-50">&copy; 2024. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Simple script to show/hide the Confidential checkbox 
+        // depending on if "Prayer Request" is selected.
+        const inquirySelect = document.getElementById('inquiryType');
+        const confidentialDiv = document.getElementById('confidentialOption');
+
+        inquirySelect.addEventListener('change', function() {
+            if (this.value === 'prayer') {
+                confidentialDiv.style.display = 'block';
+            } else {
+                confidentialDiv.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
